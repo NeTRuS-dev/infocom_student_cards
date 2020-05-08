@@ -3,21 +3,36 @@ body {
     height: 100%;
     width: 100%;
 }
-.wrapper{
+
+.wrapper {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-.form-wrapper{
+
+.form-wrapper {
     height: auto;
     width: 50%;
 }
-.wrap{
+
+.wrap {
     display: flex;
     flex-direction: column;
 }
-.wrap a{
+
+.wrap a {
     width: 40%;
+}
+nav, .nav{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    ul.nav {
+        display: flex;
+        justify-content: space-around;
+    }
 }
