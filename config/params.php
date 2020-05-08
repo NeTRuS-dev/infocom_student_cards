@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'fileName'=>'studentsBase.txt'
+    'fileName' => 'studentsBase.txt'
 ];

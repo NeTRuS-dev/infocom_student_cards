@@ -4,6 +4,8 @@
 namespace app\models;
 
 
+use DateTime;
+
 class Student extends \yii\base\Model
 {
     public string $name = '';
@@ -26,7 +28,7 @@ class Student extends \yii\base\Model
         return [
             [['name', 'surname', 'patronymic', 'address', 'phone'], 'filter', 'filter' => 'trim', 'skipOnArray' => true],
             [['name', 'surname', 'patronymic', 'dateOfBirth', 'address', 'phone'], 'required'],
-            ['dateOfBirth', 'date', 'format' => 'yyyy-mm-dd'],
+            ['dateOfBirth', 'date', 'format' => 'yyyy-mm-dd', 'max' => ((new DateTime())->format('yy-m-d')), 'min' => '1147-01-01',],
             ['phone', 'match', 'pattern' => "/^(8-?|\+?7-?)?(\(?\d{3}\)?)-?(\d-?){6}\d$/", 'message' => 'Введите корректный номер телефона']
         ];
     }
