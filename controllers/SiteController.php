@@ -31,12 +31,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Student();
-
-        if ($model->load(Yii::$app->request->post()) && $model->Save()) {
+        $data = Yii::$app->request->post();
+        if ($model->load($data) && $model->Save()) {
 
             return $this->render('success');
         } else {
-            return $this->render('index',compact('model'));
+            return $this->render('index', compact('model'));
 
         }
     }

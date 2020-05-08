@@ -6,12 +6,12 @@ namespace app\models;
 
 class Student extends \yii\base\Model
 {
-    public string $name;
-    public string $surname;
-    public string $patronymic;
-    public string $dateOfBirth;
-    public string $address;
-    public string $phone;
+    public string $name = '';
+    public string $surname = '';
+    public string $patronymic = '';
+    public string $dateOfBirth = '';
+    public string $address = '';
+    public string $phone = '';
     private string $_fileStoragePath;
 
     public function __construct()
@@ -25,8 +25,8 @@ class Student extends \yii\base\Model
         return [
             [['name', 'surname', 'patronymic', 'address', 'phone'], 'filter', 'filter' => 'trim', 'skipOnArray' => true],
             [['name', 'surname', 'patronymic', 'dateOfBirth', 'address', 'phone'], 'required'],
-            ['dateOfBirth', 'date'],
-            ['phone', 'match', 'pattern' => '^((\+7|7|8)+([0-9]){10})$', 'message' => 'Введите корректный номер телефона']
+            ['dateOfBirth', 'date','format'=>'yyyy-mm-dd'],
+            ['phone', 'match', 'pattern' => "/^(8-?|\+?7-?)?(\(?\d{3}\)?)-?(\d-?){6}\d$/", 'message' => 'Введите корректный номер телефона']
         ];
     }
 
@@ -45,7 +45,8 @@ class Student extends \yii\base\Model
     public function Save()
     {
         if ($this->validate()) {
-            file_put_contents($this->_fileStoragePath,$this->toArray() , FILE_APPEND);
+//            file_put_contents($this->_fileStoragePath,$this->toArray() , FILE_APPEND);
+            return true;
         } else {
             return false;
         }
