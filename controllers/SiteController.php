@@ -42,4 +42,10 @@ class SiteController extends Controller
         }
     }
 
+    public function actionDownload()
+    {
+        $storage = new FileSaver();
+        return Yii::$app->response->sendFile($storage->RetrieveData());
+    }
+
 }

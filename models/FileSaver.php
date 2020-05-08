@@ -20,7 +20,18 @@ class FileSaver extends \yii\base\Model implements ISaver
     public function Save(array $value): bool
     {
         //file_put_contents($this->_fileStoragePath,$this->toArray() , FILE_APPEND);
-
+        //PHP_EOL
         // TODO: Implement Save() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function RetrieveData(): string
+    {
+        if (!file_exists($this->_fileStoragePath)) {
+            file_put_contents($this->_fileStoragePath, '');
+        }
+        return $this->_fileStoragePath;
     }
 }
