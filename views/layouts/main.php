@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use app\widgets\Alert;
@@ -26,9 +27,8 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-
-        <?= $content ?>
+<div class="wrapper">
+    <?= $content ?>
 </div>
 <?php $this->endBody() ?>
 </body>

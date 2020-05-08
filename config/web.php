@@ -10,6 +10,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
+        '@storage' => '@app/storage',
     ],
     'language' => 'ru-RU',
     'charset' => 'UTF-8',
