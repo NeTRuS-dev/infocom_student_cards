@@ -26,8 +26,7 @@ class CommandController extends Controller
      */
     public function actionIndex()
     {
-        symlink('./storage','./web/storage');
-
+        symlink(\Yii::getAlias('@app').DIRECTORY_SEPARATOR."storage",\Yii::getAlias('@app').DIRECTORY_SEPARATOR.'web'.DIRECTORY_SEPARATOR.'storage');
         return ExitCode::OK;
     }
 }
