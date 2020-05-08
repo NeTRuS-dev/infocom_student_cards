@@ -43,7 +43,7 @@ class Student extends \yii\base\Model
         ];
     }
 
-    public function Save():bool
+    public function Save(): bool
     {
         if ($this->validate()) {
             return ($this->_saver->Save($this->toArray()));

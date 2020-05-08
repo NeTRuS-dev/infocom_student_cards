@@ -16,7 +16,6 @@ $config = [
     'charset' => 'UTF-8',
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'l_UjCDBK-a9DLQ2CxuMABrhDSmPrmWo_',
         ],
         'cache' => [
@@ -40,7 +39,8 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
-                ''=>'site/index'
+                '' => 'site/index',
+                'download' => 'site/download'
             ],
         ],
     ],

@@ -34,7 +34,6 @@ class SiteController extends Controller
         $model = new Student(new FileSaver());
         $data = Yii::$app->request->post();
         if ($model->load($data) && $model->Save()) {
-
             return $this->render('success');
         } else {
             return $this->render('index', compact('model'));
