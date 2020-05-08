@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\FileSaver;
 use app\models\Student;
 use Yii;
 use yii\web\Controller;
@@ -30,7 +31,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Student();
+        $model = new Student(new FileSaver());
         $data = Yii::$app->request->post();
         if ($model->load($data) && $model->Save()) {
 

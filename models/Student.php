@@ -12,12 +12,13 @@ class Student extends \yii\base\Model
     public string $dateOfBirth = '';
     public string $address = '';
     public string $phone = '';
-    private string $_fileStoragePath;
 
-    public function __construct()
+    private ISaver $_saver;
+
+    public function __construct(ISaver $saver)
     {
         parent::__construct();
-        $this->_fileStoragePath = \Yii::getAlias('@storage') . DIRECTORY_SEPARATOR . \Yii::$app->params['fileName'];
+        $this->_saver = $saver;
     }
 
     public function rules()
@@ -25,7 +26,7 @@ class Student extends \yii\base\Model
         return [
             [['name', 'surname', 'patronymic', 'address', 'phone'], 'filter', 'filter' => 'trim', 'skipOnArray' => true],
             [['name', 'surname', 'patronymic', 'dateOfBirth', 'address', 'phone'], 'required'],
-            ['dateOfBirth', 'date','format'=>'yyyy-mm-dd'],
+            ['dateOfBirth', 'date', 'format' => 'yyyy-mm-dd'],
             ['phone', 'match', 'pattern' => "/^(8-?|\+?7-?)?(\(?\d{3}\)?)-?(\d-?){6}\d$/", 'message' => 'Введите корректный номер телефона']
         ];
     }
@@ -42,11 +43,10 @@ class Student extends \yii\base\Model
         ];
     }
 
-    public function Save()
+    public function Save():bool
     {
         if ($this->validate()) {
-//            file_put_contents($this->_fileStoragePath,$this->toArray() , FILE_APPEND);
-            return true;
+            return ($this->_saver->Save($this->toArray()));
         } else {
             return false;
         }
