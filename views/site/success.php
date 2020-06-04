@@ -3,7 +3,7 @@
 /* @var $this yii\web\View */
 
 
-$this->title = 'Student Card';
+$this->title = 'Карточка студента';
 ?>
 <div class="wrap justify-content-center align-items-center">
     <span class="h2 text-center">Новый студент успешно добавлен в базу данных</span>

@@ -7,7 +7,7 @@ use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
-$this->title = 'Student Card';
+$this->title = 'Карточка студента';
 ?>
 <?php NavBar::begin(); ?>
 <?= Nav::widget(['items' => [
@@ -17,8 +17,8 @@ $this->title = 'Student Card';
 <?php NavBar::end(); ?>
 <div class="form-wrapper">
     <?php $form = ActiveForm::begin() ?>
-    <?= $form->field($model, 'name') ?>
     <?= $form->field($model, 'surname') ?>
+    <?= $form->field($model, 'name') ?>
     <?= $form->field($model, 'patronymic') ?>
     <?= $form->field($model, 'address') ?>
     <?= $form->field($model, 'phone') ?>
